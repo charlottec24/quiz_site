@@ -19,7 +19,8 @@ development:
   encoding: unicode
   database: quiz_site_development
   pool: 5
-  username: quiz_site
+  host: localhost
+  username: Charlotte
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -47,14 +48,9 @@ test:
   adapter: postgresql
   encoding: unicode
   database: quiz_site_test
+  host: localhost
   pool: 5
-  username: quiz_site
+  username: Charlotte
   password:
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: quiz_site_production
-  pool: 5
-  username: quiz_site
-  password:
+
