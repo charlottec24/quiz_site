@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20130710145234) do
     t.datetime "updated_at"
   end
 
-  create_table "question", force: true do |t|
+  create_table "questions", force: true do |t|
     t.text     "text"
     t.boolean  "answer"
     t.integer  "user_id"
