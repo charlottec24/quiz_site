@@ -1,1 +1,7 @@
-<h2> WELCOME!!!</h2>
+<h2> WELCOME <%= @name %>!</h2>
+
+
+
+<%= form_for :user, :url => logout_path do |f| %>
+		<%= f.submit "Logout" %>
+<% end %>
