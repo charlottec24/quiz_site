@@ -1,10 +1,24 @@
 <h2>Add a question to the quiz!</h2>
 
-<div>
-	<form>
-		Question: <input type="text" name="Question"><br>
-		<input type="radio" name="answer" value="true">True<br>
-		<input type="radio" name="answer" value="false">False<br>
-		<input type="submit" value="Submit">
-	</form>
+
+<%= form_for :user, :url => addquestion_path do |f| %>
+
+	<div>
+		<%= f.label :question %>
+		<%= f.text_field :question %>
+	</div>
+
+	<div>
+		<%= radio_button_tag(:value, "true") %>
+		<%= label_tag(:value, "True") %>
+		<%= radio_button_tag(:value, "false") %>
+		<%= label_tag(:value, "False") %>
+	</div>
+
+	<div>
+		<%= f.submit "Submit" %>
+	</div>
+
+<% end %>
+
 </div>
