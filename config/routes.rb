@@ -13,7 +13,7 @@ QuizSite::Application.routes.draw do
 
   post 'logout' => 'users#logout'
 
-  resource :questions, :only => [:new, :create]
+  resource :questions, :only => [:new, :create, :show]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

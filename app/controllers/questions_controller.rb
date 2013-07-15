@@ -9,9 +9,22 @@ class QuestionsController < ApplicationController
 		@question = Question.new
 	end
 
-private
+	def show
+		@show_question = Question.order("RANDOM()").first
+		@answer = Answer.new
+		# if @show_question && Question.authenticate(@show_question.answer)
+		# 	flash[:correct] = "Correct"
+		# 	# redirect_to show_questions_path
+		# else
+		# 	flash[:error] = "Incorrect"
+		# end	
+	end
 
-  def question_params
-    params.require(:question).permit(:text, :answer)
-  end
+	private
+
+	  def question_params
+	    params.require(:question).permit(:text, :answer)
+	  end
+	
 end
+
