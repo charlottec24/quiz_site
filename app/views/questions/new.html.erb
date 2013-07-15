@@ -1,0 +1,22 @@
+<h2>Add a question to the quiz!</h2>
+
+
+<%= form_for @question do |f| %>
+
+	<div>
+		<%= f.label :text %>
+		<%= f.text_field :text %>
+	</div>
+
+	<div>
+		<%= f.radio_button :answer, "true" %>
+		<%= f.label :answer, "true"  %>
+		<%= f.radio_button :answer, "false" %>
+		<%= f.label :answer, "false"  %>
+	</div>
+
+	<div>
+		<%= f.submit "Submit" %>
+	</div>
+
+<% end %>

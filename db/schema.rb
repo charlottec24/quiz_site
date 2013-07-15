@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20130710145234) do
   enable_extension "plpgsql"
 
   create_table "answers", force: true do |t|
-    t.boolean  "value"
+    t.string   "value"
     t.integer  "question_id"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20130710145234) do
 
   create_table "questions", force: true do |t|
     t.text     "text"
-    t.boolean  "answer"
+    t.string   "answer"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
