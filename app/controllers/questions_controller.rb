@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
 	def show
 		@show_question = Question.order("RANDOM()").first
 		@answer = Answer.new
-		# if @show_question && Question.authenticate(@show_question.answer)
+		# if @show_question && Question.compare(@show_question.answer)
 		# 	flash[:correct] = "Correct"
 		# 	# redirect_to show_questions_path
 		# else

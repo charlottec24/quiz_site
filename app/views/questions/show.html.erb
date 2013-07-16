@@ -1,13 +1,12 @@
-<h2>Question </h2>
+<h2>Question <p><%= @show_question.id %></p> </h2>
 
 <p><%= @show_question.text %></p>
 
 <%= form_for @answer do |f| %>
-	<%= f.hidden_field :question_id, @show_question.id %>
 	<div> 
-		<%= f.radio_button :answer, "true" %>
+		<%= f.radio_button :value, "true" %>
 		<%= f.label "true" %>
-		<%= f.radio_button :answer, "false" %>
+		<%= f.radio_button :value, "false" %>
 		<%= f.label "false" %>
 	</div>
 

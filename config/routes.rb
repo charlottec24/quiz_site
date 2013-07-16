@@ -15,6 +15,7 @@ QuizSite::Application.routes.draw do
 
   resource :questions, :only => [:new, :create, :show]
 
+  resource :answers, :only => [:create]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
