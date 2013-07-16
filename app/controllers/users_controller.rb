@@ -1,19 +1,23 @@
 class UsersController < ApplicationController
 
-
-	def signup
+	def create
 		User.create!(user_params)
 		redirect_to '/'
 	end
 
+	def new
+		@user = User.new
+	end
+
 	def login
 	    @user = User.find_by_user_name(params[:user][:user_name])
-	    if 
-	    	@user && User.authenticate(params[:user][:password])
-	    	@name = @user.user_name
-	    	render 'users/userprofile'
+	    if @user && User.authenticate(params[:user][:password])
+	       @name = @user.user_name
+	       session[:user_id] = @user.id
+	       # render 'users/userprofile'
+	       redirect_to user_path(@user)
 	    else
-	    	flash[:error] = "user name or password is invalid"
+	       flash[:error] = "user name or password is invalid"
 	    end
 	end
 
@@ -21,8 +25,6 @@ class UsersController < ApplicationController
 		session.clear
 		redirect_to '/'
 	end
-
-
 
 private
 

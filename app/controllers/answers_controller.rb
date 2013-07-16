@@ -1,15 +1,18 @@
 class AnswersController < ApplicationController
 
 	def create
-		answer = Answer.new(params.require(:answer).permit(:value))
+		answer = Answer.new(params.require(:answer).permit(:value, :question_id))
+		# answer.user = current_user
 		answer.save!
-		
-		if (answer.question == answer.value)
+		question = answer.question
+
+		if (question.answer == answer.value)
+			# redirect_to answers_path
 			flash[:notice] = "Correct!"
-			redirect_to questions_path
 		else
-			flash[:false] = "Incorrect!"
-			redirect_to questions_path
+			# redirect_to answers_path
+			flash[:notice] = "Incorrect!"
 		end
 	end
+
 end

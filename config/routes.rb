@@ -5,17 +5,24 @@ QuizSite::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'users#index'
 
-  post 'signup' => 'users#signup'
+  # post 'signup' => 'users#signup' # create
 
-  get 'signup' => 'users#signup_display'
+  # get 'signup' => 'users#signup_display' # new
 
-  post 'login' => 'users#login'
+  # post 'login' => 'users#login'
 
-  post 'logout' => 'users#logout'
+  # post 'logout' => 'users#logout'
+
+  resources :users, :only => [:show, :create, :new] do
+    collection do
+      post 'login'
+      post 'logout'      
+    end
+  end
 
   resource :questions, :only => [:new, :create, :show]
 
-  resource :answers, :only => [:create]
+  resource :answers, :only => [:create, :show]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
