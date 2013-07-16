@@ -4,6 +4,7 @@
 
 <%= form_for @answer do |f| %>
 	<%= f.hidden_field :question_id %>
+	<%= f.hidden_field :user_id %>
 	<div> 
 		<%= f.radio_button :value, "true" %>
 		<%= f.label "true" %>
